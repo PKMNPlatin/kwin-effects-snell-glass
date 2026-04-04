@@ -53,6 +53,7 @@ struct RefractionSettings
     float refractionStrength;
     float refractionNormalPow;
     float refractionRGBFringing;
+    float refractionRadialBending;
 };
 
 class BlurSettings
