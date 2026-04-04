@@ -133,6 +133,7 @@ private:
         int windowDataLocation;
 
         int saturationBoostLocation;
+        int brightnessLocation;
     } m_roundedOnscreenPass;
 
     struct
