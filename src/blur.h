@@ -123,6 +123,7 @@ private:
         int refractionNormalPowLocation;
         int refractionRGBFringingLocation;
         int refractionRadialBendingLocation;
+        int refractionBendingStrengthLocation;
 
         int tintColorLocation;
         int tintStrengthLocation;
