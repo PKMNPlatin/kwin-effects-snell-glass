@@ -98,7 +98,6 @@ private:
     bool shouldBlur(const EffectWindow *w, int mask, const WindowPaintData &data) const;
     void updateBlurRegion(EffectWindow *w);
     void blur(const RenderTarget &renderTarget, const RenderViewport &viewport, EffectWindow *w, int mask, const Region &deviceRegion, WindowPaintData &data);
-    GLTexture *ensureNoiseTexture();
     QMatrix4x4 colorMatrix(const float &brightness, const float &saturation, const float &contrast) const;
 
 private:
@@ -125,6 +124,8 @@ private:
         int glowColorLocation;
         int glowStrengthLocation;
         int edgeLightingLocation;
+        int noiseStrengthLocation;
+        int windowPositionLocation;
     } m_roundedOnscreenPass;
 
     struct
@@ -143,16 +144,6 @@ private:
         int halfpixelLocation;
     } m_upsamplePass;
 
-    struct
-    {
-        std::unique_ptr<GLShader> shader;
-        int mvpMatrixLocation;
-        int noiseTextureSizeLocation;
-
-        std::unique_ptr<GLTexture> noiseTexture;
-        qreal noiseTextureScale = 1.0;
-        int noiseTextureStength = 0;
-    } m_noisePass;
 
     BlurSettings m_settings;
     bool m_valid = false;
