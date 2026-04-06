@@ -26,6 +26,8 @@ struct GeneralSettings
     QString tintColor;
     QString glowColor;
     bool edgeLighting;
+    bool blendGlowColor;
+    bool boostEdgeSaturation;
     bool excludeDocks;
 };
 
