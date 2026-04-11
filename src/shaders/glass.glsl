@@ -82,16 +82,13 @@ vec4 glass(vec4 color, vec4 radius)
 {
     vec2 halfSize = blurSize * 0.5;
     vec2 pixelPos = uv * blurSize - halfSize;
-
-    float cornerRadius = pixelPos.x > 0.0
-        ? (pixelPos.y > 0.0 ? radius.y : radius.w)
-        : (pixelPos.y > 0.0 ? radius.x : radius.z);
-    vec2 q = abs(pixelPos) - halfSize + cornerRadius;
-    float dist = min(max(q.x, q.y), 0.0) + length(max(q, 0.0)) - cornerRadius;
+    float dist = roundedRectangleDist(pixelPos, halfSize, radius);
 
     if (dist >= 0.0) {
         return color;
     }
+    float rimWidth = max(edgeSizePixels * 0.025, 0.9);
+    float rimIntensity = exp(-(-dist) / rimWidth);
 
     float brightness = glassBrightness;
     float ior = 1.0 + refractionStrength;
@@ -136,7 +133,7 @@ vec4 glass(vec4 color, vec4 radius)
 
         vec2 surfaceNormal = gradLen > 0.001 ? smoothGrad / gradLen : vec2(1.0, 0.0);
         vec2 normalizedPos = pixelPos / blurSize;
-        float cornerWeight = dot(normalizedPos, normalizedPos) * 4.0;
+        float cornerWeight = dot(normalizedPos, normalizedPos) * 3.0;
         surfaceNormal += normalizedPos * lensBlend * cornerWeight;
 
         vec2 uvScale = 1.0 / blurSize;
@@ -161,10 +158,12 @@ vec4 glass(vec4 color, vec4 radius)
             float edgeBrightness = 1.0 - smoothstep(0.0, bandWidth, -dist);
             brightness += edgeBrightness * glowStrength;
         }
+    } else {
+        if (boostEdgeSaturation == 1) {
+            color.rgb = oklabSatBoost(color.rgb, 1.0 + rimIntensity * 1.5);
+        }
     }
 
-    float rimWidth = max(edgeSizePixels * 0.025, 0.9);
-    float rimIntensity = exp(-(-dist) / rimWidth);
     if (blendGlowColor == 1) {
         brightness += rimIntensity * 2.0 * glowStrength;
     }
