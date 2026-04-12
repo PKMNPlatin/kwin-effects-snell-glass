@@ -21,9 +21,13 @@ struct GeneralSettings
     float brightness;
     float saturation;
     float contrast;
+    float blurRadius;
+    float upsampleOffset;
     QString tintColor;
     QString glowColor;
     bool edgeLighting;
+    bool blendGlowColor;
+    bool boostEdgeSaturation;
     bool excludeDocks;
 };
 
