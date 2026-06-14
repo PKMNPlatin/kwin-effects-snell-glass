@@ -183,6 +183,9 @@ private:
         int glowColorLocation;
         int glowStrengthLocation;
         int edgeLightingLocation;
+        int rimGlowLocation;
+        int rimSpecularLocation;
+        int rimWidthLocation;
     } m_roundedOnscreenPass;
 
     struct
