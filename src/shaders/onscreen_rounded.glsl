@@ -11,8 +11,8 @@ uniform vec2 blurSize;
 
 VARYING_IN vec2 uv;
 VARYING_IN vec2 vertex;
-#include "glass.glsl"
 #include "oklab.glsl"
+#include "glass.glsl"
 
 void main(void)
 {
