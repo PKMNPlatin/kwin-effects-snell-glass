@@ -170,6 +170,8 @@ private:
         int edgeLightingLocation;
         int rimGlowLocation;
         int rimSpecularLocation;
+        int rimEdgeHighlightLocation;
+        int rimEdgeHighlightStrengthLocation;
         int rimWidthLocation;
     } m_roundedOnscreenPass;
 
