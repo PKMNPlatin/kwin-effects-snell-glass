@@ -60,6 +60,9 @@ void BlurSettings::read()
 
     general.tintColor = BlurConfig::tintColor();
     general.glowColor = BlurConfig::glowColor();
+    general.rimGlow = BlurConfig::rimGlow();
+    general.rimSpecular = BlurConfig::rimSpecular();
+    general.rimWidth = std::clamp(BlurConfig::rimWidth(), 10, 40) / 10.0f;
     general.edgeLighting = BlurConfig::edgeLighting();
     general.edgeLightingDock = BlurConfig::edgeLightingDock();
     general.edgeLightingTooltip = BlurConfig::edgeLightingTooltip();
