@@ -33,7 +33,7 @@
             <default>15</default>
         </entry>
         <entry name="BlurFinetune" type="Int">
-            <default>3</default>
+            <default>12</default>
         </entry>
         <entry name="BlurSaturationCompensation" type="Bool">
             <default>true</default>
