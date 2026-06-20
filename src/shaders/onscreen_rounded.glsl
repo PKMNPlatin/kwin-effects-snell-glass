@@ -25,14 +25,14 @@ void main(void)
     vec4 sum = vec4(0);
     if (dist <= 0.0) {
         sum = TEXTURE(texUnit, uv + vec2(-halfpixel.x * 2.0, 0.0) * offset);
-        sum += TEXTURE(texUnit, uv + vec2(-halfpixel.x, halfpixel.y) * offset) * 2.0;
+        sum += TEXTURE(texUnit, uv + vec2(-halfpixel.x, halfpixel.y) * offset) * 3.0;
         sum += TEXTURE(texUnit, uv + vec2(0.0, halfpixel.y * 2.0) * offset);
-        sum += TEXTURE(texUnit, uv + vec2(halfpixel.x, halfpixel.y) * offset) * 2.0;
+        sum += TEXTURE(texUnit, uv + vec2(halfpixel.x, halfpixel.y) * offset) * 3.0;
         sum += TEXTURE(texUnit, uv + vec2(halfpixel.x * 2.0, 0.0) * offset);
-        sum += TEXTURE(texUnit, uv + vec2(halfpixel.x, -halfpixel.y) * offset) * 2.0;
+        sum += TEXTURE(texUnit, uv + vec2(halfpixel.x, -halfpixel.y) * offset) * 3.0;
         sum += TEXTURE(texUnit, uv + vec2(0.0, -halfpixel.y * 2.0) * offset);
-        sum += TEXTURE(texUnit, uv + vec2(-halfpixel.x, -halfpixel.y) * offset) * 2.0;
-        sum /= 12.0;
+        sum += TEXTURE(texUnit, uv + vec2(-halfpixel.x, -halfpixel.y) * offset) * 3.0;
+        sum /= 16.0;
     }
 
     sum = glass(sum, cornerRadius);
