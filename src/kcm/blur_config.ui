@@ -543,30 +543,6 @@
        </item>
        <item>
         <layout class="QHBoxLayout">
-         <item>
-          <widget class="QLabel" name="labelGlowColor">
-           <property name="text">
-            <string>Glow color</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLineEdit" name="kcfg_GlowColor">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="toolTip">
-            <string>Enter a color in #AARRGGBB format. The A (alpha) channel sets glow strength.</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout">
 
          <item>
           <layout class="QVBoxLayout" name="mainOptionsLayout">
@@ -760,7 +736,7 @@
      </widget>
      <widget class="QWidget" name="widget">
       <attribute name="title">
-       <string>Refraction</string>
+       <string>Refraction + Rim</string>
       </attribute>
       <layout class="QVBoxLayout">
        <item>
@@ -1207,6 +1183,178 @@
         </layout>
        </item>
        <item>
+        <widget class="QGroupBox" name="rimGroupBox">
+         <property name="title">
+          <string>Rim</string>
+         </property>
+         <layout class="QVBoxLayout">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayoutRimWidth">
+            <item>
+             <widget class="QLabel" name="labelRimWidth">
+              <property name="text">
+               <string>Rim width</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRimWidthThin">
+              <property name="text">
+               <string>Thin</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="kcfg_RimWidth">
+              <property name="minimum">
+               <number>10</number>
+              </property>
+              <property name="maximum">
+               <number>40</number>
+              </property>
+              <property name="singleStep">
+               <number>1</number>
+              </property>
+              <property name="pageStep">
+               <number>1</number>
+              </property>
+              <property name="value">
+               <number>10</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TickPosition::TicksBelow</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRimWidthWide">
+              <property name="text">
+               <string>Wide</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayoutRimGlowColor">
+            <item>
+             <widget class="QLabel" name="labelGlowColor">
+              <property name="text">
+               <string>Glow color</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="kcfg_GlowColor">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="toolTip">
+               <string>Enter a color in #AARRGGBB format. The A (alpha) channel sets glow strength.</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_RimGlow">
+            <property name="text">
+             <string>Glow</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_RimSpecular">
+            <property name="text">
+             <string>Specular</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayoutRimEdgeHighlight">
+            <item>
+             <widget class="QCheckBox" name="kcfg_RimEdgeHighlight">
+              <property name="text">
+               <string>Edge highlight</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacerRimEdgeHighlight">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRimEdgeHighlightSubtle">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Subtle</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QSlider" name="kcfg_RimEdgeHighlightStrength">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="minimum">
+               <number>0</number>
+              </property>
+              <property name="maximum">
+               <number>16</number>
+              </property>
+              <property name="singleStep">
+               <number>2</number>
+              </property>
+              <property name="pageStep">
+               <number>2</number>
+              </property>
+              <property name="value">
+               <number>6</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+              <property name="tickPosition">
+               <enum>QSlider::TickPosition::TicksBelow</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="labelRimEdgeHighlightBright">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="text">
+               <string>Bright</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Orientation::Vertical</enum>
@@ -1548,6 +1696,25 @@
    <sender>kcfg_PhysicallyBasedRefraction</sender>
    <signal>toggled(bool)</signal>
    <receiver>labelRefractionBevelIntensityRound</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+
+  <connection>
+   <sender>kcfg_RimEdgeHighlight</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>kcfg_RimEdgeHighlightStrength</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_RimEdgeHighlight</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelRimEdgeHighlightSubtle</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_RimEdgeHighlight</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelRimEdgeHighlightBright</receiver>
    <slot>setEnabled(bool)</slot>
   </connection>
  </connections>

@@ -31,6 +31,11 @@ struct GeneralSettings
     bool saturationCompensation;
     QString tintColor;
     QString glowColor;
+    bool rimGlow;
+    bool rimSpecular;
+    bool rimEdgeHighlight;
+    float rimEdgeHighlightStrength;
+    float rimWidth;
     bool edgeLighting;
     bool edgeLightingDock;
     bool edgeLightingTooltip;
