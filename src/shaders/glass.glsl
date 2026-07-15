@@ -1,4 +1,5 @@
 uniform vec3 tintColor;
+uniform float tintGray;
 uniform float tintStrength;
 uniform int autoTintAlpha;
 uniform vec3 glowColor;
@@ -116,7 +117,6 @@ float adjustedTintStrength(float baseTintStrength, vec3 backgroundColor)
 
     const vec3 grayscaleWeights = vec3(0.299, 0.587, 0.114);
     float backgroundGray = dot(backgroundColor, grayscaleWeights);
-    float tintGray = dot(tintColor, grayscaleWeights);
 
     float finalScale = clamp(abs(backgroundGray - tintGray), 0.0, 1.0);
 

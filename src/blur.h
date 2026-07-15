@@ -179,6 +179,7 @@ private:
         int physicallyBasedRefractionLocation;
 
         int tintColorLocation;
+        int tintGrayLocation;
         int tintStrengthLocation;
         int autoTintAlphaLocation;
 
