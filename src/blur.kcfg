@@ -35,6 +35,12 @@
         <entry name="AutoTintAlpha" type="Bool">
             <default>false</default>
         </entry>
+        <entry name="AutoTintAlphaMin" type="Int">
+            <default>0</default>
+        </entry>
+        <entry name="AutoTintAlphaMax" type="Int">
+            <default>100</default>
+        </entry>
         <entry name="GlowColor" type="String">
             <default>#00000000</default>
         </entry>

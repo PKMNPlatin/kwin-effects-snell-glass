@@ -60,6 +60,10 @@ void BlurSettings::read()
 
     general.tintColor = BlurConfig::tintColor();
     general.autoTintAlpha = BlurConfig::autoTintAlpha();
+    const float autoTintAlphaMin = std::clamp(BlurConfig::autoTintAlphaMin(), 0, 100) / 100.0f;
+    const float autoTintAlphaMax = std::clamp(BlurConfig::autoTintAlphaMax(), 0, 100) / 100.0f;
+    general.autoTintAlphaMin = std::min(autoTintAlphaMin, autoTintAlphaMax);
+    general.autoTintAlphaMax = std::max(autoTintAlphaMin, autoTintAlphaMax);
     general.glowColor = BlurConfig::glowColor();
     general.edgeLighting = BlurConfig::edgeLighting();
     general.edgeLightingDock = BlurConfig::edgeLightingDock();

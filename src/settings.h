@@ -31,6 +31,8 @@ struct GeneralSettings
     bool saturationCompensation;
     QString tintColor;
     bool autoTintAlpha;
+    float autoTintAlphaMin;
+    float autoTintAlphaMax;
     QString glowColor;
     bool edgeLighting;
     bool edgeLightingDock;

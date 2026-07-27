@@ -1,6 +1,7 @@
 uniform vec3 tintColor;
 uniform float tintGray;
 uniform float tintStrength;
+uniform vec2 autoTintAlphaRange;
 uniform int autoTintAlpha;
 uniform vec3 glowColor;
 uniform float glowStrength;
@@ -119,8 +120,9 @@ float adjustedTintStrength(float baseTintStrength, vec3 backgroundColor)
     float backgroundGray = dot(backgroundColor, grayscaleWeights);
 
     float finalScale = clamp(abs(backgroundGray - tintGray), 0.0, 1.0);
+    float rangedScale = mix(autoTintAlphaRange.x, autoTintAlphaRange.y, finalScale);
 
-    float localStrength = strength * finalScale;
+    float localStrength = strength * rangedScale;
     float useLocal = step(0.5, float(autoTintAlpha)) * step(0.001, strength);
 
     return mix(strength, localStrength, useLocal);

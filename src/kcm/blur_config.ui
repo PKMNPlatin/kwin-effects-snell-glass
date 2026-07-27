@@ -635,9 +635,63 @@
                   <string>Automatically adjust tint strength</string>
                  </property>
                  <property name="toolTip">
-                  <string>Scales tint strength by comparing the average background color with the text color.</string>
+                  <string>Scales tint strength by comparing the tint color with the color behind each pixel.</string>
                  </property>
                 </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="autoTintAlphaMinLayout">
+                 <item>
+                  <widget class="QLabel" name="labelAutoTintAlphaMin">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="text">
+                    <string>Minimum tint strength</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="kcfg_AutoTintAlphaMin">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="suffix">
+                    <string>%</string>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="autoTintAlphaMaxLayout">
+                 <item>
+                  <widget class="QLabel" name="labelAutoTintAlphaMax">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="text">
+                    <string>Maximum tint strength</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QSpinBox" name="kcfg_AutoTintAlphaMax">
+                   <property name="enabled">
+                    <bool>false</bool>
+                   </property>
+                   <property name="suffix">
+                    <string>%</string>
+                   </property>
+                   <property name="maximum">
+                    <number>100</number>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
                </item>
                <item>
                 <widget class="QCheckBox" name="kcfg_ExcludeDocks">
@@ -1587,6 +1641,30 @@
    <signal>toggled(bool)</signal>
    <receiver>kcfg_EdgeLightingTooltip</receiver>
    <slot>setChecked(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_AutoTintAlpha</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelAutoTintAlphaMin</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_AutoTintAlpha</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>kcfg_AutoTintAlphaMin</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_AutoTintAlpha</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>labelAutoTintAlphaMax</receiver>
+   <slot>setEnabled(bool)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_AutoTintAlpha</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>kcfg_AutoTintAlphaMax</receiver>
+   <slot>setEnabled(bool)</slot>
   </connection>
   
   <connection>

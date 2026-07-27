@@ -181,6 +181,7 @@ private:
         int tintColorLocation;
         int tintGrayLocation;
         int tintStrengthLocation;
+        int autoTintAlphaRangeLocation;
         int autoTintAlphaLocation;
 
         int glowColorLocation;
